@@ -1,5 +1,5 @@
 <template>
-  <h1>Use Vue To Explore UX Implementation</h1>
+  <h1>Use vue to explore how to implement a better UX interface</h1>
 </template>
 
 <script lang="ts" setup>
