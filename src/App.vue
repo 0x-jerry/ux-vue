@@ -3,7 +3,7 @@
     <h1 class="title">Use vue to explore how to implement a better UX interface</h1>
   </div>
   <div class="box">
-    <h2 class="title">1. Navigation component with amazing animation</h2>
+    <h2 class="title">1. A navigation component that with amazing animation</h2>
     <Navigation></Navigation>
   </div>
 </template>
