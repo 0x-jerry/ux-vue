@@ -49,9 +49,10 @@
             h="50px"
             flex="~"
             p="x-4"
-            bg="white hover:gray-50"
+            bg="white"
             tabindex="-1"
             @click="enterItem(o)"
+            @mousemove="focusCurrent"
           >
             {{ o.title }}
           </div>
@@ -87,7 +88,6 @@ onMounted(() => {
 
         e.classList.add('focus')
 
-        console.log(pre?.getAttribute('tabindex'))
         if (pre?.getAttribute('tabindex') === '-1') {
           e.focus()
         } else {
@@ -112,6 +112,12 @@ function preventMoveCursor(e: Event) {
   if (['ArrowUp', 'ArrowDown'].includes(ev.key)) {
     ev.preventDefault()
   }
+}
+
+function focusCurrent(e: Event) {
+  if (!keyboardNav) return
+
+  keyboardNav.activeElement = e.target as HTMLElement
 }
 
 const emit = defineEmits(['update:visible'])
