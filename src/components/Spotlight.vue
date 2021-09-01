@@ -132,6 +132,10 @@ const data = reactive({
 watch(
   () => data.input,
   async () => {
+    if (keyboardNav?.activeElement) {
+      return
+    }
+
     keyboardNav?.blur()
     await sleep(0)
     keyboardNav?.focus()
