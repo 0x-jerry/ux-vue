@@ -69,6 +69,7 @@ function activeCurrent(e: MouseEvent, o: number) {
     z-index: 0;
     width: @unit-w;
     height: @unit-h;
+    box-sizing: content-box;
 
     top: -1px;
     left: 0;
