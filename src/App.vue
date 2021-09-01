@@ -27,29 +27,36 @@ const spotlightItems: ISpotlightOption[] = [
   {
     group: 'string',
     title: 'hello',
+    id: '1',
   },
   {
     group: 'string',
     title: 'world',
+    id: '2',
   },
   {
     group: 'string',
     title: 'world1',
+    id: '3',
   },
   {
     group: 'string',
     title: 'world2',
+    id: '4',
   },
   {
     group: 'string',
     title: 'world3',
+    id: '5',
   },
   {
     group: 'string',
     title: 'world4',
+    id: '6',
   },
   {
     title: 'other world',
+    id: '7',
   },
 ]
 

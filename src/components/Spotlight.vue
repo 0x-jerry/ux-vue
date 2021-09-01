@@ -42,10 +42,11 @@
             />
           </div>
         </div>
-        <div class="content" overflow="auto" h="max-200px" border="t solid gray-100">
+        <div class="spotlight-content" overflow="auto" h="max-300px" border="t solid gray-100">
           <div
             class="spotlight-item items-center"
             v-for="o in result"
+            :key="o.id"
             h="50px"
             flex="~"
             p="x-4"
@@ -88,12 +89,10 @@ onMounted(() => {
 
         e.classList.add('focus')
 
-        if (pre?.getAttribute('tabindex') === '-1') {
-          e.focus()
-        } else {
-          e.focus()
+        e.focus()
+
+        if (pre?.getAttribute('tabindex') !== '-1') {
           pre?.focus()
-          e.blur()
         }
       },
       onblur(e) {

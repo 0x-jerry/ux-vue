@@ -3,6 +3,7 @@ import { Component } from 'vue'
 export interface ISpotlightContext {}
 
 export interface ISpotlightOption {
+  id: string
   title: string
   icon?: string
   /**
