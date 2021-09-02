@@ -18,6 +18,11 @@
     :items="spotlight.items"
     :groups="spotlight.groups"
   ></Spotlight>
+  <SwapCard :visible="true">
+    <template #content="{ data }">
+      <div p="x-5">xx {{ data }}</div>
+    </template>
+  </SwapCard>
 </template>
 
 <script lang="ts" setup>
@@ -25,6 +30,7 @@ import { reactive } from 'vue'
 import Navigation from './components/Navigation.vue'
 import { ISpotlightGroup, ISpotlightOption } from './components/spotlight'
 import Spotlight from './components/Spotlight.vue'
+import SwapCard from './components/SwapCard.vue'
 
 const spotlightItems: ISpotlightOption[] = [
   {
