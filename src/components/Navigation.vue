@@ -6,7 +6,7 @@
         class="nav-item"
         v-for="o in items"
         :class="{ active: o === active }"
-        @click="(e) => activeCurrent(e, o)"
+        @mousedown="(e) => activeCurrent(e, o)"
       >
         {{ o }}{{ o }}
       </button>
@@ -30,13 +30,66 @@ onMounted(() => {
 })
 
 function activeCurrent(e: MouseEvent, o: number) {
+  if (!root.value) return
+
+  const rx = root.value.offsetLeft
+
   const el = e.target as HTMLDivElement
 
-  anime({
-    targets: root.value,
-    left: el.offsetLeft,
-    easing: 'spring(1, 70, 10, 0)',
-  })
+  const x = el.offsetLeft
+  const w = el.offsetWidth
+
+  const delay = 50
+  const duration = 240
+
+  const ww = Math.abs(x - rx) + w
+
+  if (o > active.value) {
+    anime({
+      targets: root.value,
+      width: [
+        {
+          value: ww,
+          duration,
+        },
+        {
+          value: w,
+          duration,
+          delay,
+        },
+      ],
+      left: [
+        {
+          value: x,
+          duration,
+          delay: duration + delay,
+        },
+      ],
+      easing: 'easeOutExpo',
+    })
+  } else {
+    anime({
+      targets: root.value,
+      width: [
+        {
+          value: ww,
+          duration,
+        },
+        {
+          value: w,
+          duration,
+          delay: delay,
+        },
+      ],
+      left: [
+        {
+          value: x,
+          duration,
+        },
+      ],
+      easing: 'easeOutExpo',
+    })
+  }
 
   active.value = o
 }
