@@ -47,6 +47,7 @@
             class="spotlight-item items-center"
             v-for="o in result"
             :key="o.id"
+            :id="`spotlight-item-${o.id}`"
             h="50px"
             flex="~"
             p="x-4"
@@ -110,6 +111,17 @@ function preventMoveCursor(e: Event) {
 
   if (['ArrowUp', 'ArrowDown'].includes(ev.key)) {
     ev.preventDefault()
+  }
+
+  if (ev.key === 'Tab' || ev.key === 'Enter') {
+    ev.preventDefault()
+    ev.stopImmediatePropagation()
+    const id = keyboardNav?.activeElement?.id.replace('spotlight-item-', '')
+    const activeItem = props.items.find((i) => i.id === id)
+
+    if (activeItem) {
+      data.input = activeItem.title
+    }
   }
 }
 

@@ -1,14 +1,17 @@
 <template>
-  <div class="box">
-    <h1 class="title">Use vue to explore how to implement a better UX interface</h1>
-  </div>
+  <h1 class="text-2xl text-center my-5">
+    Use vue to explore how to implement a better UX interface
+  </h1>
+
   <div class="box">
     <h2 class="title">1. A navigation component that with amazing animation</h2>
     <Navigation></Navigation>
   </div>
   <div class="box">
     <h2 class="title">2. Click the button to evoke Spotlight component</h2>
-    <button @click="evokeSpotlight">Evoke Spotlight</button>
+    <div class="text-center">
+      <button @click="evokeSpotlight">Evoke Spotlight ( ⌘ + K )</button>
+    </div>
   </div>
   <Spotlight
     v-model:visible="spotlight.visible"
@@ -72,7 +75,7 @@ const spotlightGroups: ISpotlightGroup[] = [
 ]
 
 const spotlight = reactive({
-  visible: true,
+  visible: false,
   items: spotlightItems,
   groups: spotlightGroups,
 })
@@ -87,7 +90,6 @@ function evokeSpotlight() {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #393d41;
 }
 
@@ -99,6 +101,7 @@ function evokeSpotlight() {
   }
 
   .title {
+    @apply text-xl my-4 px-10;
     transition: color ease 0.4s;
   }
 }
