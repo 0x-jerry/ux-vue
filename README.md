@@ -1,3 +1,3 @@
 # UX Vue
 
-Learning how to design a interface with good UX, and practice my poor English.
+Learning how to design a user interface with good UX.

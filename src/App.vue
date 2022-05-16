@@ -18,7 +18,7 @@
     :items="spotlight.items"
     :groups="spotlight.groups"
   ></Spotlight>
-  <SwapCard :visible="true">
+  <SwapCard :visible="false">
     <template #content="{ data }">
       <div p="x-5">xx {{ data }}</div>
     </template>
